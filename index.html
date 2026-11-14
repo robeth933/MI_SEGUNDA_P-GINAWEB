@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AETHERIA ORBITAL | Exploración Aeroespacial Privada</title>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;600;700&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+
+    <!-- LUZ DE AMBIENTE QUE SIGUE AL CURSOR -->
+    <div class="cursor-glow" id="cursorGlow"></div>
+
+    <!-- BARRA DE PROGRESO DE ÓRBITA -->
+    <div class="progreso-orbita" id="progresoOrbita"></div>
+
+    <!-- NAVEGACIÓN ULTRA LIMPIA -->
+    <nav class="navbar">
+        <div class="nav-contenedor">
+            <a href="#" class="logo">AETHERIA<span>//</span>ORBITAL</a>
+            <div class="nav-links">
+                <a href="#misiones">Misiones</a>
+                <a href="#flota">Flota</a>
+                <a href="#transmision">Transmisión 4K</a>
+                <a href="#filosofia">Filosofía</a>
+                <a href="#reserva" class="btn-nav-glow">Reservar Vuelo</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- PORTADA CON VIDEO REAL DE LA TIERRA DESDE EL ESPACIO -->
+    <header class="hero-espacial">
+        <video autoplay muted loop playsinline class="video-fondo" poster="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1600&q=85">
+            <!-- Si descargas tu video local, cambia el src de abajo por: src="portada.mp4" -->
+            <source src="https://upload.wikimedia.org/wikipedia/commons/transcoded/c/c0/Earth_from_Space_-_Time-lapse.webm/Earth_from_Space_-_Time-lapse.webm.720p.vp9.webm" type="video/webm">
+        </video>
+        <div class="hero-capa-oscura"></div>
+        
+        <div class="hero-contenido">
+            <div class="badge-mision">
+                <span class="punto-vivo"></span> TELEMETRÍA EN VIVO: ÓRBITA TERRESTRE BAJA (408 KM)
+            </div>
+            <h1>EL HORIZONTE NO ES EL LÍMITE</h1>
+            <p class="subtitulo-animado">Próximo destino: <span id="textoMaquina"></span><span class="cursor-blink">|</span></p>
+            
+            <div class="hero-acciones">
+                <a href="#misiones" class="btn-titanio">Explorar Destinos</a>
+                <a href="#transmision" class="btn-cristal">▶ Ver Lanzamiento</a>
+            </div>
+        </div>
+
+        <div class="scroll-indicador">
+            <span>DESLIZA PARA INICIAR SECUENCIA</span>
+            <div class="linea-scroll"></div>
+        </div>
+    </header>
+
+    <main>
+
+        <!-- TELEMETRÍA / DATOS REALISTAS -->
+        <section class="telemetria revelar">
+            <div class="dato-box">
+                <span class="numero" data-target="27600">27,600</span>
+                <span class="unidad">KM/H</span>
+                <p>Velocidad Orbital</p>
+            </div>
+            <div class="dato-box">
+                <span class="numero" data-target="100">100</span>
+                <span class="unidad">%</span>
+                <p>Propulsores Reutilizables</p>
+            </div>
+            <div class="dato-box">
+                <span class="numero" data-target="14">14</span>
+                <span class="unidad">DÍAS</span>
+                <p>Tránsito Lunar Directo</p>
+            </div>
+        </section>
+
+        <!-- MISIONES Y DESTINOS CON EFECTO 3D REALISTA -->
+        <section id="misiones" class="seccion revelar">
+            <div class="cabecera-seccion">
+                <span class="etiqueta-sec">01 // PROGRAMAS ACTIVOS</span>
+                <h2>Destinos Interplanetarios</h2>
+                <p>Selecciona una misión para inspeccionar los detalles fotográficos de alta resolución.</p>
+            </div>
+
+            <div class="grid-misiones">
+                <article class="tarjeta-3d" onclick="abrirVisor(this)">
+                    <div class="img-box">
+                        <img src="https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?auto=format&fit=crop&w=900&q=85" alt="Estación Orbital">
+                        <span class="tag-estado">ABIERTO 2026</span>
+                    </div>
+                    <div class="info-mision">
+                        <h3>Estación Hotel Aurum</h3>
+                        <p>Gravedad cero artificial, cúpulas panorámicas de cristal blindado con vista directa a las auroras boreales desde el espacio.</p>
+                        <div class="meta-mision">
+                            <span>Altitud: 420 km</span>
+                            <span>Duración: 5 Días</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="tarjeta-3d" onclick="abrirVisor(this)">
+                    <div class="img-box">
+                        <img src="https://images.unsplash.com/photo-1522030299830-16b8d3d049fe?auto=format&fit=crop&w=900&q=85" alt="Base Lunar Shackleton">
+                        <span class="tag-estado">CUPOS LIMITADOS</span>
+                    </div>
+                    <div class="info-mision">
+                        <h3>Cráter Shackleton (Luna)</h3>
+                        <p>Expedición científica y turística al polo sur lunar. Caminatas presurizadas en trajes de última generación.</p>
+                        <div class="meta-mision">
+                            <span>Distancia: 384,400 km</span>
+                            <span>Duración: 12 Días</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="tarjeta-3d" onclick="abrirVisor(this)">
+                    <div class="img-box">
+                        <img src="https://images.unsplash.com/photo-1614728894747-a83421e2b9c9?auto=format&fit=crop&w=900&q=85" alt="Colonia Marciana">
+                        <span class="tag-estado">FASE BETA 2028</span>
+                    </div>
+                    <div class="info-mision">
+                        <h3>Valles Marineris (Marte)</h3>
+                        <p>El primer asentamiento humano autosustentable en el planeta rojo. Descubre el cañón más grande del sistema solar.</p>
+                        <div class="meta-mision">
+                            <span>Distancia: 225M km</span>
+                            <span>Duración: 18 Meses</span>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- ESPECIFICACIONES DE FLOTA (PESTAÑAS INTERACTIVAS) -->
+        <section id="flota" class="seccion revelar">
+            <div class="cabecera-seccion">
+                <span class="etiqueta-sec">02 // INGENIERÍA AEROESPACIAL</span>
+                <h2>Nuestra Flota Estelar</h2>
+            </div>
+
+            <div class="tabs-flota">
+                <button class="tab-btn activo" onclick="cambiarNave('valkyrie', this)">Crucero Valkyrie-X</button>
+                <button class="tab-btn" onclick="cambiarNave('hyperion', this)">Carguero Hyperion Heavy</button>
+            </div>
+
+            <div class="panel-nave" id="panelNave">
+                <div class="nave-visual">
+                    <img id="imgNave" src="https://images.unsplash.com/photo-1517976487492-5750f3195933?auto=format&fit=crop&w=900&q=85" alt="Nave Espacial">
+                </div>
+                <div class="nave-specs">
+                    <h3 id="tituloNave">Crucero Orbital Valkyrie-X</h3>
+                    <p id="descNave">Diseñado para el transporte de pasajeros de lujo hacia la órbita terrestre y la Luna. Cuenta con escudos térmicos de carburo de silicio y aterrizaje propulsivo vertical de precisión milimétrica.</p>
+                    <ul class="lista-specs" id="listaSpecs">
+                        <li><strong>Capacidad:</strong> 24 Pasajeros + 4 Tripulantes</li>
+                        <li><strong>Propulsión:</strong> 9 Motores de Metano Líquido Criogénico</li>
+                        <li><strong>Empuje Total:</strong> 18,500 kN al nivel del mar</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- TRANSMISIÓN DE VIDEO REAL DE LANZAMIENTO ESPACIAL -->
+        <section id="transmision" class="seccion revelar">
+            <div class="cabecera-seccion">
+                <span class="etiqueta-sec">03 // ARCHIVO AUDIOVISUAL</span>
+                <h2>Prueba de Ignición y Despegue</h2>
+                <p>Registro oficial en alta definición desde nuestra plataforma de lanzamiento.</p>
+            </div>
+
+            <div class="marco-cine">
+                <video controls poster="https://images.unsplash.com/photo-1541185933-ef5d8ed016c2?auto=format&fit=crop&w=1200&q=85">
+                    <!-- Si descargas tu video local, cambia el src de abajo por: src="lanzamiento.mp4" -->
+                    <source src="https://upload.wikimedia.org/wikipedia/commons/transcoded/9/95/STS-132_Launch_High_Definition.ogv/STS-132_Launch_High_Definition.ogv.480p.vp9.webm" type="video/webm">
+                    Tu navegador no soporta el video.
+                </video>
+            </div>
+        </section>
+
+        <!-- FRASES ANIMADAS CINEMATOGRÁFICAS -->
+        <section id="filosofia" class="seccion revelar">
+            <div class="contenedor-citas">
+                <span class="etiqueta-sec">04 // FILOSOFÍA CÓSMICA</span>
+                <div class="cita-animada-box">
+                    <p id="fraseTexto" class="frase-visible">"La Tierra es la cuna de la humanidad, pero no se puede vivir en la cuna para siempre."</p>
+                    <span id="fraseAutor" class="autor-visible">— KONSTANTÍN TSIOLKOVSKI</span>
+                </div>
+                <div class="controles-cita">
+                    <button onclick="cambiarCita(-1)">← Anterior</button>
+                    <button onclick="cambiarCita(1)">Siguiente →</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- SIMULADOR DE RESERVA -->
+        <section id="reserva" class="seccion revelar">
+            <div class="panel-reserva">
+                <h2>Solicita tu Pase de Abordaje</h2>
+                <p>Nuestros ingenieros de vuelo evaluarán tu perfil para la próxima ventana de lanzamiento.</p>
+                <form onsubmit="procesarReserva(event)" class="form-espacial">
+                    <div class="fila-form">
+                        <input type="text" placeholder="Nombre Completo del Pasajero" required>
+                        <input type="email" placeholder="Correo Electrónico Oficial" required>
+                    </div>
+                    <select required>
+                        <option value="" disabled selected>Selecciona tu Destino Orbital...</option>
+                        <option value="aurum">Estación Hotel Aurum (Órbita Baja)</option>
+                        <option value="luna">Base Cráter Shackleton (Luna)</option>
+                        <option value="marte">Expedición Valles Marineris (Marte)</option>
+                    </select>
+                    <button type="submit" class="btn-titanio ancho-completo">Iniciar Solicitud de Vuelo</button>
+                </form>
+                <div id="ticketConfirmacion" class="ticket-oculto"></div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- VISOR DE IMÁGENES EN PANTALLA COMPLETA -->
+    <div id="visorModal" class="visor-modal" onclick="cerrarVisor()">
+        <span class="btn-cerrar">&times;</span>
+        <img id="visorImg" src="">
+        <h3 id="visorTitulo"></h3>
+    </div>
+
+    <footer>
+        <div class="footer-grid">
+            <div class="logo">AETHERIA<span>//</span>ORBITAL</div>
+            <p>Centro de Control Espacial | Todos los derechos reservados &copy; 2026</p>
+        </div>
+    </footer>
+
+    <!-- SCRIPTS DE MOVIMIENTO E INTERACTIVIDAD AVANZADA -->
+    <script>
+        // 1. Luz que sigue al ratón
+        const glow = document.getElementById("cursorGlow");
+        document.addEventListener("mousemove", (e) => {
+            glow.style.left = e.clientX + "px";
+            glow.style.top = e.clientY + "px";
+        });
+
+        // 2. Efecto Máquina de Escribir en la Portada
+        const destinos = ["ÓRBITA TERRESTRE BAJA", "BASE LUNAR SHACKLETON", "COLONIA VALLES MARINERIS", "EL ESPACIO PROFUNDO"];
+        let iDestino = 0, iLetra = 0, borrando = false;
+        const elMaquina = document.getElementById("textoMaquina");
+
+        function escribirEfecto() {
+            const palabraActual = destinos[iDestino];
+            if (!borrando) {
+                elMaquina.textContent = palabraActual.substring(0, iLetra + 1);
+                iLetra++;
+                if (iLetra === palabraActual.length) {
+                    borrando = true;
+                    setTimeout(escribirEfecto, 2000);
+                    return;
+                }
+            } else {
+                elMaquina.textContent = palabraActual.substring(0, iLetra - 1);
+                iLetra--;
+                if (iLetra === 0) {
+                    borrando = false;
+                    iDestino = (iDestino + 1) % destinos.length;
+                }
+            }
+            setTimeout(escribirEfecto, borrando ? 50 : 100);
+        }
+        escribirEfecto();
+
+        // 3. Efecto Inclinación 3D en Tarjetas
+        document.querySelectorAll('.tarjeta-3d').forEach(tarjeta => {
+            tarjeta.addEventListener('mousemove', (e) => {
+                const rect = tarjeta.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                const centerX = rect.width / 2;
+                const centerY = rect.height / 2;
+                const rotateX = ((y - centerY) / centerY) * -8;
+                const rotateY = ((x - centerX) / centerX) * 8;
+                tarjeta.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02, 1.02, 1.02)`;
+            });
+            tarjeta.addEventListener('mouseleave', () => {
+                tarjeta.style.transform = `perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)`;
+            });
+        });
+
+        // 4. Pestañas de Flota Estelar
+        const datosNaves = {
+            valkyrie: {
+                img: "https://images.unsplash.com/photo-1517976487492-5750f3195933?auto=format&fit=crop&w=900&q=85",
+                titulo: "Crucero Orbital Valkyrie-X",
+                desc: "Diseñado para el transporte de pasajeros de lujo hacia la órbita terrestre y la Luna. Cuenta con escudos térmicos de carburo de silicio y aterrizaje propulsivo vertical.",
+                specs: [
+                    "<strong>Capacidad:</strong> 24 Pasajeros + 4 Tripulantes",
+                    "<strong>Propulsión:</strong> 9 Motores de Metano Líquido Criogénico",
+                    "<strong>Empuje Total:</strong> 18,500 kN al nivel del mar"
+                ]
+            },
+            hyperion: {
+                img: "https://images.unsplash.com/photo-1516849841032-87cbac4d88f7?auto=format&fit=crop&w=900&q=85",
+                titulo: "Carguero Pesado Hyperion Heavy",
+                desc: "El cohete más potente jamás construido para misiones interplanetarias. Capaz de transportar módulos habitacionales completos directamente hacia la superficie de Marte.",
+                specs: [
+                    "<strong>Carga Útil:</strong> 150 Toneladas métricas a Marte",
+                    "<strong>Propulsión:</strong> 33 Motores Raptor de ciclo cerrado",
+                    "<strong>Altura Total:</strong> 121 Metros completamente reutilizable"
+                ]
+            }
+        };
+
+        function cambiarNave(clave, boton) {
+            document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('activo'));
+            boton.classList.add('activo');
+            const nave = datosNaves[clave];
+            document.getElementById("imgNave").src = nave.img;
+            document.getElementById("tituloNave").innerText = nave.titulo;
+            document.getElementById("descNave").innerText = nave.desc;
+            document.getElementById("listaSpecs").innerHTML = nave.specs.map(s => `<li>${s}</li>`).join('');
+        }
+
+        // 5. Frases Animadas con Rotación Automática y Manual
+        const citas = [
+            { texto: '"La Tierra es la cuna de la humanidad, pero no se puede vivir en la cuna para siempre."', autor: "— KONSTANTÍN TSIOLKOVSKI" },
+            { texto: '"En algún lugar, algo increíble está esperando ser descubierto."', autor: "— CARL SAGAN" },
+            { texto: '"Mira hacia las estrellas y no hacia tus pies. Intenta dar sentido a lo que ves."', autor: "— STEPHEN HAWKING" },
+            { texto: '"No elegimos ir a la Luna porque sea fácil, sino porque es difícil."', autor: "— JOHN F. KENNEDY" }
+        ];
+        let idxCita = 0;
+
+        function cambiarCita(direccion) {
+            const elTexto = document.getElementById("fraseTexto");
+            const elAutor = document.getElementById("fraseAutor");
+            elTexto.classList.remove("frase-visible");
+            elAutor.classList.remove("autor-visible");
+
+            setTimeout(() => {
+                idxCita = (idxCita + direccion + citas.length) % citas.length;
+                elTexto.innerText = citas[idxCita].texto;
+                elAutor.innerText = citas[idxCita].autor;
+                elTexto.classList.add("frase-visible");
+                elAutor.classList.add("autor-visible");
+            }, 350);
+        }
+        setInterval(() => cambiarCita(1), 6500);
+
+        // 6. Scroll Reveal y Barra de Progreso
+        window.addEventListener("scroll", () => {
+            const scroll = document.documentElement.scrollTop;
+            const altura = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            document.getElementById("progresoOrbita").style.width = (scroll / altura) * 100 + "%";
+
+            document.querySelectorAll(".revelar").forEach(el => {
+                if (el.getBoundingClientRect().top < window.innerHeight - 100) {
+                    el.classList.add("activo");
+                }
+            });
+        });
+
+        // 7. Visor Modal
+        function abrirVisor(el) {
+            document.getElementById("visorModal").style.display = "flex";
+            document.getElementById("visorImg").src = el.querySelector("img").src;
+            document.getElementById("visorTitulo").innerText = el.querySelector("h3").innerText;
+        }
+        function cerrarVisor() { document.getElementById("visorModal").style.display = "none"; }
+
+        // 8. Ticket de Reserva
+        function procesarReserva(e) {
+            e.preventDefault();
+            const nombre = e.target.querySelector("input").value;
+            const codigo = "AETH-" + Math.floor(100000 + Math.random() * 900000);
+            const ticket = document.getElementById("ticketConfirmacion");
+            ticket.style.display = "block";
+            ticket.innerHTML = `<strong>SOLICITUD REGISTRADA // CÓDIGO: ${codigo}</strong><br>Pasajero: ${nombre.toUpperCase()} — Estado: En revisión médica y orbital.`;
+            e.target.reset();
+        }
+    </script>
+</body>
+</html>
